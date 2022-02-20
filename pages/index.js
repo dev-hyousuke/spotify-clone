@@ -5,7 +5,7 @@ import { getSession } from 'next-auth/react';
 
 export default function Home () {
   return (
-    <div className="bg-black h-screen overflow-hidden">
+    <div className="bg-dark-gray-spotify h-screen overflow-hidden">
       <main className="flex">
         <Sidebar />
         <Center />
