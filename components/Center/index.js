@@ -40,7 +40,7 @@ export default function index() {
   return (
     <div className="flex-grow h-screen overflow-y-scroll scrollbar-hide pb-24 relative">
         <header className="absolute top-5 right-8 ">
-            <div className="flex items-center bg-dark-gray-spotify space-x-3 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2 text-white " onClick={signOut}>
+            <div className="flex items-center bg-dark-gray-spotify space-x-3 hover:bg-gray-700 cursor-pointer rounded-full p-1 pr-2 text-white " onClick={signOut}>
                 <img className="rounded-full w-10 h-10" src={session?.user.image} alt=""/>
                 <h2>{session?.user.name}</h2>
                 <ChevronDownIcon className="h-5 w-5" />
@@ -53,6 +53,12 @@ export default function index() {
                 <p className="text-sm font-medium">PLAYLIST</p>
                 <h2 className="text-5xl md:text-5xl xl:text-7xl font-bold">{playlist?.name}</h2>
                 <h3 className="text-gray-400 text-sm md:text-1xl xl:text-sm">{playlist?.description}</h3>
+                <div className="flex items-center space-x-2">
+                    <img className="h-5 w-5 rounded-full" src={playlist?.images?.[0]?.url} />
+                    <p className="font-bold">{playlist?.owner.display_name}</p>
+                    <p className="font-bold">-</p>
+                    <p>{playlist?.followers.total} curtidas</p>
+                </div>
             </div>
         </section>
 
@@ -61,7 +67,7 @@ export default function index() {
         <div className="flex flex-col space-y-1 pb28">
             <div className="bg-dark-gray-spotify grid grid-cols-2 text-gray-400 px-14 ">
                 <div className="flex items-center space-x-4 ">
-                    <p>#</p>
+                    <p className="w-5">#</p>
                     <p>Title</p>
                 </div>
                 <div className="flex items-center justify-between ml-auto md:ml-0">
@@ -72,7 +78,7 @@ export default function index() {
         </div>
 
         <div className="py-6 px-8">
-            <hr className="border-t-[0.1px] border-gray-500" />
+            <hr className="border-t-[0.1px] border-gray-500 opacity-40" />
         </div>
 
         <div className="bg-dark-gray-spotify ">
